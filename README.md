@@ -10,12 +10,12 @@ Una empresa de arriendo de vehículos necesita una aplicación para administrar 
 
 ### Indice
 
- - [Estructura](#Estructura)
- - [Configuracion](#Configuracion)
- - [Ejecucion](#Ejecucion)
- - [APIs](#APIs)
- - [Recursos](#Recursos)
- - [Tecnologías](#Tecnologias)
+- [Estructura](#Estructura)
+- [Configuracion](#Configuracion)
+- [Ejecucion](#Ejecucion)
+- [APIs](#APIs)
+- [Recursos](#Recursos)
+- [Tecnologías](#Tecnologias)
 
 ### Estructura
 
@@ -33,7 +33,7 @@ Una empresa de arriendo de vehículos necesita una aplicación para administrar 
 - Java 11 (JDK completo, no JRE)
 - Herramienta de línea de comando git
 - IDE preferido (yo utilizo IDEA IntelliJ)
-- MySql Server instalado localmente o con Docker 
+- MySql Server instalado localmente o con Docker
 
 #### Pasos
 ##### **Configurando la BD**
@@ -50,18 +50,18 @@ Una empresa de arriendo de vehículos necesita una aplicación para administrar 
 ```
 - Dentro de IntelliJ ```File-> Open ``` y seleccionas la ruta donde se encuentra el proyecto que descargaste en el paso anterior. Haz click en el botón ```Ok```
 - Una vez que el proyecto este abierto dirígete al archivo ```pom.xml``` en la raiz de la estructura del proyecto.
-- Selecciona click derecho en el archivo, se abrirá una ventana de opciones, dirígete a ```Maven -> Reload project```. Lo que hara con esta selección es descargar todos las librerías que se utilizarán en el pryecto.
+- Selecciona click derecho en el archivo, se abrirá una ventana de opciones, dirígete a ```Maven -> Reload project```. Lo que hara con esta selección es descargar todos las librerías que se utilizarán en el proyecto.
 
 ### Ejecucion
 ##### **Ejecución de la BD**
 Podemos generar el modelo de la BD de 2 formas:
 - Mediante el script de creación ubicado en la carpeta ```src -> main -> resource -> script```
 - Mediante Spring boot:
-    - Nos ubicamos en la carpeta ```src -> main -> resource -> application.properties``` y modficamos la propiedad ```spring.jpa.hibernate.ddl-auto```. Con el valor ```create``` lo que realizará Spring es generar las tablas en base a los modelos ubicados en la carpeta model. Una vez generado el modelo podemos cambiar el valor a ```none```.
+  - Nos ubicamos en la carpeta ```src -> main -> resource -> application.properties``` y modficamos la propiedad ```spring.jpa.hibernate.ddl-auto```. Con el valor ```create``` lo que realizará Spring es generar las tablas en base a los modelos ubicados en la carpeta model. Una vez generado el modelo podemos cambiar el valor a ```none```.
     ```bash
         spring.jpa.hibernate.ddl-auto=create
     ```
-    - Nos ubicamos en la clase ```App.java``` ubicado en ```src -> main -> java -> com -> myhotel```, seleccionamos click derecho ```Run```.
+  - Nos ubicamos en la clase ```App.java``` ubicado en ```src -> main -> java -> com -> myhotel```, seleccionamos click derecho ```Run```.
 ##### **Ejecución Spring Administrar Vehículos**
 - Nos ubicamos en el archivo ```application.properties``` ubicado en ```src -> main -> resource```. Aquí podemos validar los valores para la configuración y ejecución del proyecto:
     ```bash
@@ -125,19 +125,40 @@ Podemos generar el modelo de la BD de 2 formas:
 | :---------- | :--------- | :------------------------------------------ |
 | `id`      | `Integer` | **Obligatorio**. ID del vehiculo |
 
+#### Listar mantenimientos por vehículo
+
+```http
+  GET /mantenimiento/vehiculo/${id}
+  
+```
+| Parámetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `Integer` | **Obligatorio**. ID del vehiculo |
+
+#### Agregar mantenimiento
+
+```http
+  POST /mantenimiento
+```
+
+| Parámetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| Mantenimiento      | Models | **Obligatorio**. Modelo que contiene todos los datos del mantenimiento. |
+
 Para mayor información consulte ```http://localhost:9080/swagger-ui.html```
+
 #### Recursos
 - Script de BD ubicado en la carpeta ```src -> main -> resource -> script``` con nombre ```rentcar.sql```
 
 #### Tecnologias
 
-- [Spring boot](#) 
+- [Spring boot](#)
 - [Spring Data](#)
 - [Spring Web](#)
 - [Spring Validation](#)
 - [Swagger](#)
-- [Lombok](#) 
-- [ModelMapper](#) 
-- [Maven](#) 
-- [Java 11](#) 
+- [Lombok](#)
+- [ModelMapper](#)
+- [Maven](#)
+- [Java 11](#)
 - [MySql](#) 

@@ -27,7 +27,7 @@ public class MantenimientoController {
             @ApiResponse(code = 204, message = "Sin contenido. No se encontraron resultados"),
             @ApiResponse(code = 400, message = "Bad Request.", response = String.class),
             @ApiResponse(code = 500, message = "Error en la ejecución del servicio") })
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/vehiculo/{id}")
     @ResponseBody
     ResponseEntity<Object> consultarId(@PathVariable Integer id){
         try {
