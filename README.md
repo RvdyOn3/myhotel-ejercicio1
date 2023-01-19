@@ -1,7 +1,7 @@
 
 # Prueba Técnica
 
-En este repositorio vamos a encontrar las soluciones a las preguntas 1 y 3 de la prueba técnica.
+En este repositorio vamos a encontrar las soluciones a las preguntas 1 de la prueba técnica.
 
 ## Pregunta 1 - Administrar Vehiculos :
 Construya una aplicación en Spring Boot que resuelva el siguiente problema:
